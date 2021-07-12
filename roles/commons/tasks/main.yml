@@ -1,0 +1,31 @@
+---
+- name: install aptitude using apt
+  become: yes
+  apt:
+    name:
+      - aptitude
+    state: present
+    force_apt_get: yes
+    update_cache: yes
+  when: not ansible_check_mode
+
+- name: install required system packages
+  become: yes
+  apt:
+    name:
+      - htop
+      - vim
+      - build-essential
+      - python3-apt
+      - python3-dev
+      - python3-pip
+      - python3-setuptools
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
+      - virtualenv
+      - ansible
+    state: present
+    update_cache: yes
+  when: not ansible_check_mode

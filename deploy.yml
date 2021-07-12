@@ -1,0 +1,6 @@
+---
+- name: build the application container
+  hosts: app-server:&{{ env | lower }}
+  gather_facts: yes
+  roles:
+    - commons

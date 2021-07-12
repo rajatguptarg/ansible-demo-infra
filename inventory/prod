@@ -1,0 +1,13 @@
+[local]
+localhost ansible_connection=local
+
+[app-server]
+localhost ansible_connection=local
+
+[db-server]
+localhost ansible_connection=local
+
+[prod:children]
+local
+app-server
+db-server
